@@ -36,3 +36,19 @@ print("Using sorting:", majority_element_sort(list2))  # Output: 2
 # time complexity O(n)
 # space complexity O(1)
 
+def majority_element_boyer(nums):
+    n = len(nums)
+    candidate = nums[0]
+    count = 1 
+    for i in range(1,n):
+        if count == 0:
+            candidate = nums[i]
+            count = 1 
+        elif nums[i]== candidate:
+            count += 1
+        else:
+            count -=1 
+
+    return candidate 
+
+print("Using Boyer-Moore Voting Algorithm:", majority_element_boyer(list2))  # Output: 2
