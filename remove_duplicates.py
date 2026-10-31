@@ -21,3 +21,14 @@ def remove_duplicates(nums):
 print("Number of unique elements:", remove_duplicates([0,0,1,1,1,2,2,3,3,4]))  # Output: 5
 
 #using two-pointes approach 
+
+def remove_duplications_two_pointer(nums):
+    insert_pos = 1 
+    for i in range(1, len(nums)):
+        if nums[i]!= nums[insert_pos - 1 ]:
+            nums[insert_pos] = nums[i]
+            insert_pos += 1 
+
+    return insert_pos
+
+print("Number of unique elements using two-pointer approach:", remove_duplications_two_pointer([0,0,1,1,1,2,2,3,3,4]))  # Output: 5
