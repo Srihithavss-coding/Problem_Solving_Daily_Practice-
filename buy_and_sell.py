@@ -41,3 +41,16 @@ def max_profit(prices):
 
 
 print("Maximum profit:", max_profit([7,1,5,3,6,4]))  # Output: 5
+
+#using kadane's algorithm
+def max_profit(prices):
+    best = 0
+    current = 0 
+    for i in range(1, len(prices)):
+        diff = prices[i]-prices[i-1]
+        current = max(0, current + diff)
+        if current > best:
+            best = current 
+    return best
+
+print("Maximum profit:", max_profit([7,1,5,3,6,4]))  # Output: 5
