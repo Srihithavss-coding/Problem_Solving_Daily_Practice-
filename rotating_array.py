@@ -27,3 +27,18 @@ def rotate_array_brute_force(nums, k):
     return nums
 
 print(rotate_array_brute_force([1, 2, 3, 4, 5, 6, 7], 3))  # Output: [5, 6, 7, 1, 2, 3, 4]
+
+
+
+#extra array - time complexity: O(n)
+def rotate_array_extra_array(nums, k):
+    n = len(nums)
+    k = k%n 
+    result = [0]*n 
+    for i in range(n):
+        result[(i+k)%n] = nums[i]
+    for i in range(n):
+        nums[i] = result[i]
+    return nums
+
+print(rotate_array_extra_array([1, 2, 3, 4, 5, 6, 7], 3))  # Output: [5, 6, 7, 1, 2, 3, 4]
