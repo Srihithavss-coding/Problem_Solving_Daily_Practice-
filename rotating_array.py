@@ -42,3 +42,25 @@ def rotate_array_extra_array(nums, k):
     return nums
 
 print(rotate_array_extra_array([1, 2, 3, 4, 5, 6, 7], 3))  # Output: [5, 6, 7, 1, 2, 3, 4]
+
+#cyclic method 
+
+def rotate_array_cyclic(nums, k):
+    n = len(nums)
+    k = k%n 
+    count= 0 
+    start = 0
+    while count<n:
+        current = start 
+        held = nums[start]
+        while True:
+            nxt = (current +k)%n 
+            nums[nxt], held = held, nums[nxt]
+            current = nxt 
+            count+= 1 
+            if current == start:
+                break 
+        start+= 1 
+    return count 
+
+print(rotate_array_cyclic([1, 2, 3, 4, 5, 6, 7], 3))  # Output: [5, 6, 7, 1, 2, 3, 4]
